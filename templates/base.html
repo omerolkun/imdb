@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<title>
+{% block title %}
+
+{% endblock %}
+
+</title>
+<a href="{% url 'home' %}">Home</a>
+<a href="">Login</a>
+<a href="{% url 'movies' %}">Movies</a>
+
+<hr>
+<br>
+
+
+
+<body>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
+
+
