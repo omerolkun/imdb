@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 
@@ -9,7 +10,9 @@ Welcome
 
 {% block content %}
 
-this is body of homw page
+<img src = " {% static   'cinema.jpg' %}" alt = "My image" >
+
+
 {% endblock %}
 
 

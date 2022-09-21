@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Movie
+from .models import Movie, Actor
 # Create your views here.
 
 def home(request):
@@ -9,3 +9,9 @@ def home(request):
     context = { 'movlist' : movie_list,}
     return render(request, 'movie/movies.html', context )
 
+
+
+def actors(request):
+    actor_list = list( Actor.objects.all() )
+    context = { 'actlist' : actor_list , }
+    return render (request, 'movie/actors.html', context)
