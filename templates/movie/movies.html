@@ -9,7 +9,12 @@ Movies
 
 {% block content %}
 the movies will be in here <br>
-{{ movlist }}
+
+{% for m in movlist %}
+
+{{m}}
+
+<br>
+{% endfor %}
+
 {% endblock %}
-
-
