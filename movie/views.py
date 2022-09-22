@@ -6,7 +6,7 @@ def home(request):
     movie_list =list( Movie.objects.all() )
     m = movie_list[0]
     print(m)
-    context = { 'movlist' : movie_list,}
+    context = { 'movlist' : movie_list,'iteration':range(1,39)}
     return render(request, 'movie/movies.html', context )
 
 

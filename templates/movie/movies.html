@@ -8,14 +8,14 @@ Movies
 
 
 {% block content %}
-the movies will be in here <br>
-<img src = " {% static   'movie/1.jpg' %}"  width = "100" height = "125" alt = "My image" >
 
-{% for m in movlist %}
 
-{{m}}
+{% for x in iteration %}
+	{% with y=forloop.counter|stringformat:"s" %}
+	<img src = " {% static 'movie/'|add:y|add:'.jpg' %}" width = 100 height=125 alt="image" />
+	{% endwith %}
 
-<br>
+
 {% endfor %}
 
 {% endblock %}
