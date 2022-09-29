@@ -8,7 +8,18 @@ Movies
 
 
 {% block content %}
+
 <style>
+
+div {
+  width: 150px; 
+  border: 1px solid #000000;
+}
+
+div.a{
+	word-wrap: break-word;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto ;
@@ -23,15 +34,18 @@ Movies
   text-align: center;
 }
 </style>
+
 <div class = "grid-container">
-{% for x in iteration %}
+{% for x in movlist %}
 	{% with y=forloop.counter|stringformat:"s" %}
 	<div class = "grid-container">
-		<div clas="movie poster"><img src = " {% static 'movie/'|add:y|add:'.jpg' %}" width = 150 height=200 alt="image" /> <br> {{x}} 
+	
+		<div class="a">
+		<div clas="movie poster"><img src = " {% static 'movie/'|add:y|add:'.jpg' %}" width = 150 height=200 alt="image" /> <br> {{x.name}} 
 
-	{% endwith %}
 	</div>
-
+{% endwith %}
+</div>
 </div>
 {% endfor %}
 {% endblock %}
