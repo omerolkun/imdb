@@ -8,4 +8,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('movies/', include('movie.urls')),
+    path('yazboz/', views.yazboz ),
 ]
