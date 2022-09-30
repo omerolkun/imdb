@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Movie, Actor
+from .models import Movie, Actor,Movie_Director
 # Create your views here.
 
 def home(request):
@@ -11,7 +11,9 @@ def home(request):
 
 def single_movie(request, para):
     movie = Movie.objects.all()[para-1]
-    return render(request, 'movie/singlemovie.html', {'para':movie})
+    director = Movie_Director.objects.get(movie_id = para )
+    print("director objects -> " , director)
+    return render(request, 'movie/singlemovie.html', {'para':movie, 'director':director})
 
 def actors(request):
     actor_list = list( Actor.objects.all() )

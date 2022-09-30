@@ -10,10 +10,10 @@
 {% with myvar=para.movie_id|stringformat:"s" %}
 <p style="float: left;"><img src = " {% static 'movie/'|add:myvar|add:'.jpg' %}" width = 300 height=400 > </p>
 <p><br>
-<h2>	Director:</h2>
+<h2>	Director:{{director.director_id.name}}</h2>
 <h2>	Actors: </h2>
-<h2>	Release Year: </h2>
-<br>
+<h2>	Release Year:{{para.release_year}}   </h2>
+<br>     
 </p>
 {% endwith %}
 </div>
