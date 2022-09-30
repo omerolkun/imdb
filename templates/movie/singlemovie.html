@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
-a movie
+{{para.name}}
 {% endblock %}
 
 {% block content %}
+<h1>Movie name:   {{para.name}} </h1>
+<div>
+{% with myvar=para.movie_id|stringformat:"s" %}
+<p style="float: left;"><img src = " {% static 'movie/'|add:myvar|add:'.jpg' %}" width = 300 height=400 > </p>
+<p><br>
+<h2>	Director:</h2>
+<h2>	Actors: </h2>
+<h2>	Release Year: </h2>
+<br>
+</p>
+{% endwith %}
+</div>
 
-
-
-<h2>paramater is {{para}} </h2>
 
 
 {% endblock %}

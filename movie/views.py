@@ -10,7 +10,8 @@ def home(request):
     return render(request, 'movie/movies.html', context )
 
 def single_movie(request, para):
-    return render(request, 'movie/singlemovie.html', {'para':para})
+    movie = Movie.objects.all()[para-1]
+    return render(request, 'movie/singlemovie.html', {'para':movie})
 
 def actors(request):
     actor_list = list( Actor.objects.all() )
