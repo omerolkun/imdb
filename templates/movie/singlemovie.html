@@ -11,7 +11,11 @@
 <p style="float: left;"><img src = " {% static 'movie/'|add:myvar|add:'.jpg' %}" width = 300 height=400 > </p>
 <p><br>
 <h2>	Director:{{director.director_id.name}}</h2>
-<h2>	Actors: </h2>
+<h2>	Actors: 
+	{% for x in actors %}
+	{{x.actor_id.name}}  . 
+	{% endfor %}
+</h2>
 <h2>	Release Year:{{para.release_year}}   </h2>
 <br>     
 </p>
