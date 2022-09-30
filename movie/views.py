@@ -9,8 +9,8 @@ def home(request):
     context = { 'movlist' : movie_list,'iteration':range(0,38)}
     return render(request, 'movie/movies.html', context )
 
-#def single_movie(request):
-    
+def single_movie(request, para):
+    return render(request, 'movie/singlemovie.html', {'para':para})
 
 def actors(request):
     actor_list = list( Actor.objects.all() )
