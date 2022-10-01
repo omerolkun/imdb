@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Movie, Actor,Movie_Director, Movie_Actor
+from .models import Movie, Actor,Movie_Director, Movie_Actor, Director
 # Create your views here.
 
 def home(request):
@@ -13,11 +13,21 @@ def single_movie(request, para):
     movie = Movie.objects.all()[para-1]
     director = Movie_Director.objects.get(movie_id = para )
     actors = Movie_Actor.objects.filter(movie_id = para) 
-    print("actors are 0> ", actors)
-    print("director objects -> " , director)
     return render(request, 'movie/singlemovie.html', {'para':movie, 'director':director, "actors":actors})
+
+
+def single_director(request, pawra):
+    director = Director.objects.all()[pawra-1]
+    movies  = Movie_Director.objects.filter(director_id = pawra)
+    return render(request, 'movie/singledirector.html', {'director':director, 'movlist':movies})
+
+
 
 def actors(request):
     actor_list = list( Actor.objects.all() )
     context = { 'actlist' : actor_list , }
     return render (request, 'movie/actors.html', context)
+
+
+def directors(request):
+    return render(request, "movie/directors.html")

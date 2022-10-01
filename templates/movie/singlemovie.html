@@ -10,7 +10,7 @@
 {% with myvar=para.movie_id|stringformat:"s" %}
 <p style="float: left;"><img src = " {% static 'movie/'|add:myvar|add:'.jpg' %}" width = 300 height=400 > </p>
 <p><br>
-<h2>	Director:{{director.director_id.name}}</h2>
+<h2>	<a href="{% url 'single_director' director.director_id.director_id   %}" >Director:{{director.director_id.name}}</a></h2>
 <h2>	Actors: 
 	{% for x in actors %}
 	{{x.actor_id.name}}  . 
