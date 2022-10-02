@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Actor
+{% endblock %}
+
+{% block content %}
+
+
+
+{% with myvar=actor.actor_id|stringformat:"s" %}
+<p style="float: left;"><img src = " {% static 'movie/actor/'|add:myvar|add:'.jpg' %}" width = 300 height=400 > </p>
+
+<p><br>
+
+{% endwith %}
+
+
+
+
+
+<h2> Actor name: {{actor.name}} </h2>
+<h2> Actor age: {{actor.age}} </h2>
+<h2> Movies		:
+	{% for x in movlist %}
+	{{x.movie_id.name}}.
+	{% endfor %}
+
+	{{movlist.movie_id}} </h2>
+{% endblock %}
+
+
+
+
+
+

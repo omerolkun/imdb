@@ -9,6 +9,11 @@ Welcome
 
 
 {% block content %}
+{% if user.is_authenticated %}
+	{{user.username}}'s account
+{% else %}
+	<p>Welcome guest</p>
+{% endif %}
 
 <img src = " {% static   'cinema.jpg' %}" alt = "My image" >
 

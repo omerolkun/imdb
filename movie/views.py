@@ -23,11 +23,18 @@ def single_director(request, pawra):
 
 
 
+def single_actor(request, para):
+    actor = Actor.objects.all()[para-1]
+    movies = Movie_Actor.objects.filter( actor_id = para ) 
+    return render(request, 'movie/singleactor.html', {'actor':actor, 'movlist':movies })
+
+
+
+
+
 def actors(request):
     actor_list = list( Actor.objects.all() )
     context = { 'actlist' : actor_list , }
     return render (request, 'movie/actors.html', context)
-
-
 def directors(request):
     return render(request, "movie/directors.html")

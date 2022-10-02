@@ -7,6 +7,4 @@ def home(request):
 
 def yazboz(request):
     context = { 'iteration':range(1,39)}
-
-
     return render(request, 'yazboz.html', context)
