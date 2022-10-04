@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import Movie, Actor,Movie_Director, Movie_Actor, Director
+from .forms import NewUserForm
+from django.http import HttpResponse
+
 # Create your views here.
 
 def home(request):
@@ -36,5 +39,35 @@ def actors(request):
     actor_list = list( Actor.objects.all() )
     context = { 'actlist' : actor_list , }
     return render (request, 'movie/actors.html', context)
+
+
 def directors(request):
     return render(request, "movie/directors.html")
+
+
+
+def register_request(request):
+    if request.method== "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+
+            user.form.save()
+            login(request,user)
+            messages.success(request, "registration is ok")
+            return HttpResponse ("dafsdfe")
+    form = NewUserForm()
+    return render(request=request, template_name="movie/signup.html", context={"register_form":form})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
